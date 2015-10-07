@@ -42,3 +42,5 @@ Thumbs.db
 
 # ignorar solucionarios
 *soluciones
+
+__pycache__

@@ -22,8 +22,7 @@ from random import randint
 
 VALOR = randint(0,100)
 
-if VALOR%2==0:
-    print("el valor %d es multiplo de 2"%(VALOR))
+if VALOR%2==0: print("el valor %d es multiplo de 2"%(VALOR))
 elif VALOR%3==0:
     print("el valor %d es multiplo de 3"%(VALOR))
 elif VALOR%5==0:
