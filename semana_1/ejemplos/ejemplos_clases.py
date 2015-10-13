@@ -36,9 +36,7 @@ droid2 = Robot("C-3PO")
 droid2.saluda()
 Robot.cuantos()
 
-print("\nRobots can do some work here.\n")
-
-print("Robots have finished their work. So let's destroy them.")
+print("Hora de destruir robots.")
 droid1.muere()
 droid2.muere()
 
