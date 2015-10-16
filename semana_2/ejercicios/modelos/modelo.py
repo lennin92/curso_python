@@ -54,7 +54,7 @@ class Modelo:
         if not('tabla' in cls.__metadata__ and
             'atributos' in cls.__metadata__ and
             'pk' in cls.__metadata__):
-                raise Exception('diccionario __metadada__ malformado')
+                raise Exception('diccionario __metadata__ malformado')
         create_string = """
             CREATE TABLE IF NOT EXISTS %(tabla)s (
                 %(atributos)s,

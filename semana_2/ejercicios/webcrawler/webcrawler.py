@@ -7,13 +7,18 @@ Created on Mon Oct 12 04:29:48 2015
 
 from urllib.request import urlopen as uget
 from urllib import parse
-import re
+import re, xml
 
-IMG_URL_REGEXS = "<img[A-Za-z0-9 0/\-_\=@\"\']*src=\"(?P<url>[A-Za-z0-9\_\-./:;?=&\"\']*)\"[A-Za-z0-9 0/\-_\=\'\"]*[\/ ]*>"
-AHR_URL_REGEXS = "<a[A-Za-z0-9 0/\-_\=@\"\':,]*href=\"(?P<url>[A-Za-z0-9\_\-./:;,?=&\"\']*)\"[A-Za-z0-9 0/\-_\=\'\",:]*[\/ ]*>"
+IMG_URL_REGEXS = "<img[A-Za-z0-9 /\-_\=@\"\']*src=\"(?P<url>[A-Za-z0-9\_\-./:;?=&%]*)\"[A-Za-z0-9 0/\-_\=\'\"]*[\/ ]*>"
+AHR_URL_REGEXS = "<a[A-Za-z0-9 /\-_\=@\"\':,]*href=\"(?P<url>[A-Za-z0-9\_\-./:;,?=&%]*)\"[A-Za-z0-9 0/\-_\=\'\",:]*[\/ ]*>"
 
 IMG_REGEX = re.compile(IMG_URL_REGEXS)
 AHR_REGEX = re.compile(AHR_URL_REGEXS)
+
+cleanr =re.compile('<.*?>')
+def html_sin_etiquetas(texto):
+    cleantext = re.sub(cleanr,'', texto)
+    return cleantext
 
 cache={}
 def descargar_html(url):
@@ -34,10 +39,13 @@ def lista_urls_pagina(html):
 def lista_urls_imagen(html):
     pass
 
+def lista_palabras(html):
+    pass
+
 def crawl(pagina_inicial, profundidad=3):
     pass
 
 
 if __name__=="__main__":
     p = "https://github.com/"
-    crawl(p)
+    indice = crawl(p)
