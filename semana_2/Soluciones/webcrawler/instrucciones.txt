@@ -1,0 +1,42 @@
+1- Completar las funciones 
+    1.1- lista_urls_pagina
+        Esta funcion debe retornar todas las urls que aparecen en las etiquetas
+        <a> del contenido de una pagina web (el formato de esta etiqueta es:
+        <a href="<<URL>>" otros_atributos>, la funcion debera retornar una
+        lista con todas las <<URL>> de la página ) 
+        
+    1.2- lista_urls_imagen
+        Esta funcion debe retornar todas las urls que aparecen en las etiquetas
+        <img> del contenido de una pagina web (el formato de esta etiqueta es:
+        <img src="<<URL>>" otros_atributos>, la funcion debera retornar una
+        lista con todas las <<URL>> de la página ) 
+
+    1.3- lista_palabras
+        Esta funcion deberá obtener una lista de todas las palabras que se 
+        encuentren en una página web.
+
+    1.4 crawl(inicio, profundidad)
+        Esta funcion debe empezar a recolectar toda la informacion de las imágenes
+        que hay en una página web, el objetivo es crear un índice de las palabras
+        y las diferentes imágenes que hay a su alrededor. 
+        Los pasos a seguir son los siguientes:
+            1- crear un diccionario vacio llamado indice.
+            2- iniciarlizar una lista llamada cola (esta debe ser una lista en 
+                la que solamente habrán tuplas, su primer elemento es un url 
+                y su segundo elemento es la profundidad a la que está).
+            3- ingresar a cola una tupla(inicio, 0)
+            4- iniciar un ciclo while(tamaño(cola)>0)
+                4.1  t_actual = cola.pop(0)
+                4.2  url_actual = t_actual[0]
+                4.3  prof_actual = t_actual[1]
+                4.5  html_txt = descargar_html(url_actual)
+                4.6  imagenes_url = lista_urls_imagen(html_txt)
+                4.7  paginas_url = lista_urls_pagina(html_txt)
+                4.8  palabras = lista_palabras(html_txt)
+                4.9  por cada palabra en palabras agregarla en indice como llave
+                    y como valor la lista de urls de imagen en la url actual.
+                4.10 si prof_actual<profundidad
+                        4.10.1 agregar los elementos de paginas_url con 
+                            profundidad = prof_actual+1
+            5- retornar indice
+            
